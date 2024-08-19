@@ -1,0 +1,12 @@
+* {
+  font-family: "Roboto";
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+h1 {
+  color: red;
+}
