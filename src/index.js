@@ -8,3 +8,6 @@ import {
   addProject,
   addTask,
 } from "./logic.js";
+import sideBar from "./sideBar.js";
+
+sideBar();

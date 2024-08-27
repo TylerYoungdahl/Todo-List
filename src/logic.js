@@ -1,6 +1,6 @@
 let projects = [];
 
-class Project {
+export class Project {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
@@ -15,7 +15,7 @@ class Project {
   }
 }
 
-class Task {
+export class Task {
   constructor(title) {
     this.title = title;
     this.isChecked = false;
@@ -26,31 +26,29 @@ class Task {
   }
 }
 
-function saveProjects() {
+export function saveProjects() {
   localStorage.setItem("projects", JSON.stringify(projects));
 }
 
-function loadProjects() {
+export function loadProjects() {
   projects = JSON.parse(localStorage.getItem("projects")) || [];
 }
 
-function addProject(title, description, dueDate, priority) {
+export function addProject(title, description, dueDate, priority) {
   const newProj = new Project(title, description, dueDate, priority);
   projects.push(newProj);
   saveProjects();
 }
 
-function addTask(project) {
+export function addTask(project) {
   const newTask = new Task(title);
   project.tasks.push(newTask);
 }
 
-export {
-  projects,
-  Project,
-  Task,
-  saveProjects,
-  loadProjects,
-  addProject,
-  addTask,
-};
+export function removeTask(project, index) {
+  project.tasks.splice(index, 1);
+}
+
+export function clearCompletedTasks(project) {
+  project.tasks = project.tasks.filter((task) => task.isCompleted === true);
+}
