@@ -1,3 +1,10 @@
 import "./assets/styles/style.css";
-
-console.log("test");
+import {
+  projects,
+  Project,
+  Task,
+  saveProjects,
+  loadProjects,
+  addProject,
+  addTask,
+} from "./logic.js";
