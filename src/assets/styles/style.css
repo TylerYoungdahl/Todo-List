@@ -90,7 +90,7 @@ body {
   background-color: var(--light-grey);
 }
 
-#projects {
+#tasks {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
@@ -98,7 +98,7 @@ body {
   padding: 15px;
 }
 
-.project {
+.task {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -106,9 +106,9 @@ body {
   background-color: white;
 }
 
-.proj-green,
-.proj-yellow,
-.proj-red {
+.task-green,
+.task-yellow,
+.task-red {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,19 +116,19 @@ body {
   font-size: 20px;
 }
 
-.proj-green {
+.task-green {
   background-color: rgb(88, 177, 88);
 }
 
-.proj-red {
+.task-red {
   background-color: rgb(209, 195, 71);
 }
 
-.proj-yellow {
+.task-yellow {
   background-color: rgb(209, 90, 90);
 }
 
-.proj-description {
+.task-description {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -136,7 +136,7 @@ body {
   padding: 10px;
 }
 
-.proj-due-date {
+.task-due-date {
   display: flex;
   justify-content: center;
   align-items: center;

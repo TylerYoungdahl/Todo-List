@@ -1,11 +1,8 @@
 export let projects = [];
 
 export class Project {
-  constructor(title, description, dueDate, priority) {
+  constructor(title) {
     this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
     this.tasks = [];
     this.isCompleted = false;
   }
@@ -16,8 +13,11 @@ export class Project {
 }
 
 export class Task {
-  constructor(title) {
+  constructor(title, description, priority, dueDate) {
     this.title = title;
+    this.description = description;
+    this.priority = priority;
+    this.dueDate = dueDate;
     this.isChecked = false;
   }
 
@@ -34,14 +34,14 @@ export function loadProjects() {
   projects = JSON.parse(localStorage.getItem("projects")) || [];
 }
 
-export function addProject(title, description, dueDate, priority) {
-  const newProj = new Project(title, description, dueDate, priority);
+export function addProject(title) {
+  const newProj = new Project(title);
   projects.push(newProj);
   saveProjects();
 }
 
-export function addTask(project) {
-  const newTask = new Task(title);
+export function addTask(project, title, description, priority, dueDate) {
+  const newTask = new Task(title, description, priority, dueDate);
   project.tasks.push(newTask);
 }
 

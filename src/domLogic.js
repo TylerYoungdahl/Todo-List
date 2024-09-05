@@ -8,4 +8,4 @@ import {
   addTask,
 } from "./logic.js";
 
-const newProjBtn = document.querySelector("#new-proj-btn");
+export function addProjectDOM() {}
