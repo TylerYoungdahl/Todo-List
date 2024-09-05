@@ -90,6 +90,68 @@ body {
   background-color: var(--light-grey);
 }
 
+#new-proj-modal {
+  height: 250px;
+  width: 400px;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#new-proj-modal div {
+  display: flex;
+  justify-content: end;
+}
+
+#new-proj-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#close-proj-modal {
+  /* display: none; */
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(209, 90, 90);
+}
+
+#close-proj-modal:hover {
+  cursor: pointer;
+}
+
+#proj-submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+#proj-title,
+#submit-proj-btn {
+  border-radius: 3px;
+}
+
+#proj-title {
+  height: 48px;
+  width: 250px;
+  border: 2px solid black;
+  font-size: 2em;
+}
+
+#submit-proj-btn {
+  height: 52px;
+  width: 120px;
+  border: none;
+  font-size: 1em;
+}
+
+#submit-proj-btn:hover {
+  cursor: pointer;
+}
+
 #tasks {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
