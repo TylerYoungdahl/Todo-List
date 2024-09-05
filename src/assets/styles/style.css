@@ -89,3 +89,58 @@ body {
   cursor: pointer;
   background-color: var(--light-grey);
 }
+
+#projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  width: 75%;
+  padding: 15px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 225px;
+  background-color: white;
+}
+
+.proj-green,
+.proj-yellow,
+.proj-red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  font-size: 20px;
+}
+
+.proj-green {
+  background-color: rgb(88, 177, 88);
+}
+
+.proj-red {
+  background-color: rgb(209, 195, 71);
+}
+
+.proj-yellow {
+  background-color: rgb(209, 90, 90);
+}
+
+.proj-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 100%;
+  padding: 10px;
+}
+
+.proj-due-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+  padding: 10px;
+  border-top: 2px solid var(--light-grey);
+}

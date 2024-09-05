@@ -1,0 +1,11 @@
+import {
+  projects,
+  Project,
+  Task,
+  saveProjects,
+  loadProjects,
+  addProject,
+  addTask,
+} from "./logic.js";
+
+const newProjBtn = document.querySelector("#new-proj-btn");
