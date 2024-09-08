@@ -83,10 +83,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 2em;
+  font-size: 20px;
+  user-select: none;
 }
 
 .sidebar-project:hover {
   cursor: pointer;
+  background-color: var(--light-grey);
+}
+
+.sidebar-project-active {
   background-color: var(--light-grey);
 }
 

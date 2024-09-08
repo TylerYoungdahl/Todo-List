@@ -9,7 +9,6 @@ export default function sideBar() {
           </button>
         </div>
         <div id="sidebar-projects">
-          <div class="sidebar-project">default</div>
         </div>
       </div>`;
   return sidebarContent;

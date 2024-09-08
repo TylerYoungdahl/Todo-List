@@ -4,7 +4,12 @@ export class Project {
   constructor(title) {
     this.title = title;
     this.tasks = [];
+    this.isActive = false;
     this.isCompleted = false;
+  }
+
+  toggleIsActive() {
+    this.isActive = !this.isActive;
   }
 
   toggleIsCompleted() {
@@ -31,7 +36,15 @@ export function saveProjects() {
 }
 
 export function loadProjects() {
-  projects = JSON.parse(localStorage.getItem("projects")) || [];
+  const loadedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+
+  projects = loadedProjects.map((proj) => {
+    const project = new Project(proj.title);
+    project.tasks = proj.tasks;
+    project.isActive = proj.isActive;
+    project.isCompleted = proj.isCompleted;
+    return project;
+  });
 }
 
 export function addProject(title) {
@@ -51,4 +64,9 @@ export function removeTask(project, index) {
 
 export function clearCompletedTasks(project) {
   project.tasks = project.tasks.filter((task) => task.isCompleted === true);
+}
+
+export function clearProjects() {
+  projects = [];
+  saveProjects();
 }
