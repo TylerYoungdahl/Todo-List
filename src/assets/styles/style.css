@@ -42,6 +42,8 @@ body {
   background-color: var(--light-grey);
 }
 
+/* SIDEBAR */
+
 #sidebar {
   display: flex;
   flex-direction: column;
@@ -97,6 +99,8 @@ body {
   background-color: var(--light-grey);
 }
 
+/* MODALS */
+
 #new-proj-modal {
   height: 250px;
   width: 400px;
@@ -117,14 +121,15 @@ body {
   height: 100%;
 }
 
-#close-proj-modal {
-  /* display: none; */
+#close-proj-modal,
+#close-task-modal {
   border: none;
   border-radius: 3px;
   background-color: rgb(209, 90, 90);
 }
 
-#close-proj-modal:hover {
+#close-proj-modal:hover,
+#close-task-modal:hover {
   cursor: pointer;
 }
 
@@ -148,16 +153,45 @@ body {
   font-size: 2em;
 }
 
-#submit-proj-btn {
+#submit-proj-btn,
+#submit-task-btn {
   height: 52px;
   width: 120px;
   border: none;
   font-size: 1em;
 }
 
-#submit-proj-btn:hover {
+#submit-proj-btn:hover,
+#submit-task-btn:hover {
   cursor: pointer;
 }
+
+#new-task-modal {
+  border: none;
+  border-radius: 8px;
+}
+
+#new-task-modal div {
+  display: flex;
+  justify-content: end;
+}
+
+#new-task-form {
+  width: 350px;
+}
+
+#task-submit-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#submit-task-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* TASKS */
 
 #tasks {
   display: grid;

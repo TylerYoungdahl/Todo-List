@@ -13,9 +13,11 @@ import {
   loadProjectsDOM,
   submitProject,
   setActiveProject,
+  submitTask,
 } from "./domLogic.js";
 import sideBar from "./modules/sideBar.js";
 import newProjModal from "./modules/newProjModal.js";
+import newTaskModal from "./modules/newTaskModal.js";
 import { format, parseISO } from "date-fns";
 import { af } from "date-fns/locale";
 
@@ -64,14 +66,19 @@ if (projects.length === 0) {
   addProject("project one");
 }
 const firstProject = projects[0];
-firstProject.toggleIsActive();
+if (!projects.some((proj) => proj.isActive)) {
+  firstProject.toggleIsActive();
+}
 loadProjectsDOM();
 
 const newProjBtn = document.querySelector("#new-proj-btn");
-const sideBarProjects = document.querySelectorAll(".sidebar-project");
 const projModal = document.querySelector("#new-proj-modal");
 const closeProjModal = document.querySelector("#close-proj-modal");
 const submitProjBtn = document.querySelector("#submit-proj-btn");
+const newTaskBtn = document.querySelector("#new-task-btn");
+const taskModal = document.querySelector("#new-task-modal");
+const closeTaskModal = document.querySelector("#close-task-modal");
+const submitTaskBtn = document.querySelector("#submit-task-btn");
 
 console.log(projects);
 
@@ -82,11 +89,9 @@ submitProjBtn.addEventListener("click", () => {
   projModal.close();
 });
 
-sideBarProjects.forEach((project) => {
-  project.addEventListener("click", (e) => {
-    setActiveProject(e.target);
-  });
-});
+newTaskBtn.addEventListener("click", () => taskModal.showModal());
+closeTaskModal.addEventListener("click", () => taskModal.close());
+submitTaskBtn.addEventListener("click", submitTask);
 
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {

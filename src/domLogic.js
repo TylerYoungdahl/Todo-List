@@ -42,6 +42,25 @@ export function submitProject() {
   loadProjectsDOM();
 }
 
+export function submitTask() {
+  const titleInput = document.querySelector("#task-title");
+  const dateInput = document.querySelector("#task-due-date");
+  const descriptionInput = document.querySelector("#task-description");
+  const priorityInput = document.querySelector("#task-priority");
+
+  const activeProject = projects.find((project) => project.isActive);
+
+  addTask(
+    activeProject,
+    titleInput.value,
+    descriptionInput.value,
+    priorityInput.value,
+    dateInput.value
+  );
+
+  saveProjects();
+}
+
 export function setActiveProject(project) {
   if (project.dataset.active === "false") {
     projects.forEach((proj) => {
