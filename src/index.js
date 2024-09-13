@@ -7,7 +7,6 @@ import {
   loadProjects,
   addProject,
   addTask,
-  clearProjects,
 } from "./logic.js";
 import {
   loadProjectsDOM,
@@ -22,8 +21,6 @@ import sideBar from "./modules/sideBar.js";
 import newProjModal from "./modules/newProjModal.js";
 import newTaskModal from "./modules/newTaskModal.js";
 import editTaskModal from "./modules/editTaskModal.js";
-import { format, parseISO } from "date-fns";
-import { af } from "date-fns/locale";
 
 const content = document.querySelector("#content");
 
@@ -58,6 +55,7 @@ const submitTaskBtn = document.querySelector("#submit-task-btn");
 const taskModalEdit = document.querySelector("#edit-task-modal");
 const closeEditTaskModal = document.querySelector("#close-edit-task-modal");
 const saveTaskBtn = document.querySelector("#save-task-btn");
+const deleteProjBtns = document.querySelectorAll(".delete-proj-btn");
 
 console.log(projects);
 
@@ -66,6 +64,14 @@ closeProjModal.addEventListener("click", () => projModal.close());
 submitProjBtn.addEventListener("click", () => {
   submitProject();
   projModal.close();
+});
+deleteProjBtns.forEach((project) => {
+  project.addEventListener("click", (e) => {
+    projects.splice(e.target.dataset.index, 1);
+    projects[0].toggleIsActive();
+    saveProjects();
+    loadProjectsDOM();
+  });
 });
 
 newTaskBtn.addEventListener("click", () => taskModal.showModal());

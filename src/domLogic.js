@@ -24,6 +24,13 @@ export function loadProjectsDOM() {
     }
     newProj.dataset.index = i;
     newProj.innerHTML = `${proj.title}`;
+
+    const deleteProj = document.createElement("button");
+    deleteProj.classList.add("delete-proj-btn");
+    deleteProj.innerHTML = "X";
+    deleteProj.dataset.index = i;
+    newProj.appendChild(deleteProj);
+
     sideBarProjectsContainer.appendChild(newProj);
   });
 

@@ -65,8 +65,3 @@ export function removeTask(project, index) {
 export function clearCompletedTasks(project) {
   project.tasks = project.tasks.filter((task) => task.isCompleted === true);
 }
-
-export function clearProjects() {
-  projects = [];
-  saveProjects();
-}
