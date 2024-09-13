@@ -69,8 +69,25 @@ export function loadTasksDOM() {
   });
 
   const editTaskBtns = document.querySelectorAll(".edit-task-btn");
+  const taskModalEdit = document.querySelector("#edit-task-modal");
+  const title = document.querySelector("#edit-task-title");
+  const description = document.querySelector("#edit-task-description");
+  const dueDate = document.querySelector("#edit-task-due-date");
+  const priority = document.querySelector("#edit-task-priority");
+  const saveTaskBtn = document.querySelector("#save-task-btn");
+
   editTaskBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {});
+    btn.addEventListener("click", () => {
+      const task = activeProject.tasks[btn.dataset.index];
+
+      title.value = task.title;
+      description.value = task.description;
+      dueDate.value = task.dueDate;
+      priority.value = task.priority;
+      saveTaskBtn.dataset.index = btn.dataset.index;
+
+      taskModalEdit.showModal();
+    });
   });
 
   const deleteTaskBtns = document.querySelectorAll(".delete-task-btn");
@@ -127,4 +144,19 @@ export function deleteTask(i) {
   loadTasksDOM();
 }
 
-export function editTask(i) {}
+export function editTask(i) {
+  const activeProject = projects.find((project) => project.isActive);
+  const activeTask = activeProject.tasks[i];
+  const title = document.querySelector("#edit-task-title");
+  const description = document.querySelector("#edit-task-description");
+  const dueDate = document.querySelector("#edit-task-due-date");
+  const priority = document.querySelector("#edit-task-priority");
+
+  activeTask.title = title.value;
+  activeTask.description = description.value;
+  activeTask.dueDate = dueDate.value;
+  activeTask.priority = priority.value;
+
+  saveProjects();
+  loadTasksDOM();
+}

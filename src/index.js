@@ -16,10 +16,12 @@ import {
   submitTask,
   loadTasksDOM,
   deleteTask,
+  editTask,
 } from "./domLogic.js";
 import sideBar from "./modules/sideBar.js";
 import newProjModal from "./modules/newProjModal.js";
 import newTaskModal from "./modules/newTaskModal.js";
+import editTaskModal from "./modules/editTaskModal.js";
 import { format, parseISO } from "date-fns";
 import { af } from "date-fns/locale";
 
@@ -32,7 +34,7 @@ content.innerHTML = `${sideBar()}<div id="tasks">
           </div>
           <div class="task-due-date" id="test-date"></div>
         </div>
-      </div>${newProjModal()}${newTaskModal()}`;
+      </div>${newProjModal()}${newTaskModal()}${editTaskModal()}`;
 
 loadProjects();
 if (projects.length === 0) {
@@ -51,8 +53,11 @@ const closeProjModal = document.querySelector("#close-proj-modal");
 const submitProjBtn = document.querySelector("#submit-proj-btn");
 const newTaskBtn = document.querySelector("#new-task-btn");
 const taskModal = document.querySelector("#new-task-modal");
-const closeTaskModal = document.querySelector("#close-task-modal");
+const closeTaskModal = document.querySelector("#close-new-task-modal");
 const submitTaskBtn = document.querySelector("#submit-task-btn");
+const taskModalEdit = document.querySelector("#edit-task-modal");
+const closeEditTaskModal = document.querySelector("#close-edit-task-modal");
+const saveTaskBtn = document.querySelector("#save-task-btn");
 
 console.log(projects);
 
@@ -66,6 +71,11 @@ submitProjBtn.addEventListener("click", () => {
 newTaskBtn.addEventListener("click", () => taskModal.showModal());
 closeTaskModal.addEventListener("click", () => taskModal.close());
 submitTaskBtn.addEventListener("click", submitTask);
+
+closeEditTaskModal.addEventListener("click", () => taskModalEdit.close());
+saveTaskBtn.addEventListener("click", () =>
+  editTask(saveTaskBtn.dataset.index)
+);
 
 const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {

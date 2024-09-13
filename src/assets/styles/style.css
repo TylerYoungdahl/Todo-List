@@ -122,14 +122,14 @@ body {
 }
 
 #close-proj-modal,
-#close-task-modal {
+.close-task-modal {
   border: none;
   border-radius: 3px;
   background-color: rgb(209, 90, 90);
 }
 
 #close-proj-modal:hover,
-#close-task-modal:hover {
+.close-task-modal:hover {
   cursor: pointer;
 }
 
@@ -154,7 +154,8 @@ body {
 }
 
 #submit-proj-btn,
-#submit-task-btn {
+#submit-task-btn,
+#save-task-btn {
   height: 52px;
   width: 120px;
   border: none;
@@ -162,25 +163,30 @@ body {
 }
 
 #submit-proj-btn:hover,
-#submit-task-btn:hover {
+#submit-task-btn:hover,
+#save-task-btn:hover {
   cursor: pointer;
 }
 
-#new-task-modal {
+#new-task-modal,
+#edit-task-modal {
   border: none;
   border-radius: 8px;
 }
 
-#new-task-modal div {
+#new-task-modal div,
+#edit-task-modal div {
   display: flex;
   justify-content: end;
 }
 
-#new-task-form {
+#new-task-form,
+#edit-task-form {
   width: 350px;
 }
 
-#task-submit-container {
+#task-submit-container,
+#task-edit-container {
   display: flex;
   flex-direction: column;
   gap: 10px;

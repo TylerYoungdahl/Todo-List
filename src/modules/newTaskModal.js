@@ -1,7 +1,7 @@
 export default function newTaskModal() {
   const newTaskModal = `<dialog id="new-task-modal">
       <div>
-        <button id="close-task-modal">X</button>
+        <button class="close-task-modal" id="close-new-task-modal">X</button>
       </div>
       <form id="new-task-form">
     <div id="task-submit-container">
