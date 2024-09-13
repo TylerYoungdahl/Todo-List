@@ -239,11 +239,25 @@ body {
   padding: 10px;
 }
 
-.task-due-date {
+.task-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 10px;
   padding: 10px;
   border-top: 2px solid var(--light-grey);
+}
+
+.task-bottom div {
+  display: flex;
+  gap: 8px;
+}
+
+.task-bottom-btns {
+  border: none;
+  border-radius: 3px;
+}
+
+.task-bottom-btns:hover {
+  cursor: pointer;
 }

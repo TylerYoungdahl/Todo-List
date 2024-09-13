@@ -32,7 +32,50 @@ export function loadProjectsDOM() {
   sideBarProjects.forEach((project) => {
     project.addEventListener("click", (e) => {
       setActiveProject(e.target);
+      loadTasksDOM();
     });
+  });
+}
+
+export function loadTasksDOM() {
+  const tasksContainer = document.querySelector("#tasks");
+  const activeProject = projects.find((project) => project.isActive);
+
+  tasksContainer.innerHTML = "";
+
+  activeProject.tasks.forEach((task, i) => {
+    const newTask = document.createElement("div");
+
+    let taskPriority = "";
+    if (task.priority === "high") {
+      taskPriority = "task-red";
+    } else if (task.priority === "medium") {
+      taskPriority = "task-yellow";
+    } else if (task.priority === "low") {
+      taskPriority = "task-green";
+    }
+
+    newTask.classList.add("task");
+    newTask.innerHTML = `<div class="${taskPriority}">${task.title}</div>
+          <div class="task-description">${task.description}</div>
+          <div class="task-bottom">${task.dueDate}
+            <div>
+              <button class="task-bottom-btns edit-task-btn" data-index="${i}">Edit</button>
+              <button class="task-bottom-btns delete-task-btn" data-index="${i}">Delete</button>
+            </div>
+          </div>`;
+
+    tasksContainer.appendChild(newTask);
+  });
+
+  const editTaskBtns = document.querySelectorAll(".edit-task-btn");
+  editTaskBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {});
+  });
+
+  const deleteTaskBtns = document.querySelectorAll(".delete-task-btn");
+  deleteTaskBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => deleteTask(e.target.dataset.index));
   });
 }
 
@@ -74,3 +117,14 @@ export function setActiveProject(project) {
 
   loadProjectsDOM();
 }
+
+export function deleteTask(i) {
+  const activeProject = projects.find((project) => project.isActive);
+  activeProject.tasks.splice(i, 1);
+
+  saveProjects();
+
+  loadTasksDOM();
+}
+
+export function editTask(i) {}
